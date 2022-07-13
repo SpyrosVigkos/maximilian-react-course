@@ -8,6 +8,7 @@ const ExpenseForm = () => {
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
   };
+
   const amountChangeHandler = (event) => {
     setEnteredAmount(event.target.value);
   };
