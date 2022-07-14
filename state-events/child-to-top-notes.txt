@@ -1,0 +1,15 @@
+This is how I stood the child to parent sending data: 
+
+Creating a fucntion to the parent that adding ass prop to the child element. 
+Notes form the Max's example: 
+
+/*1. Create a new prop onSaveExpenseData that the value for this prop should be a function, a function which will eventually be triggered when something happens inside of this component. */
+/* 2. Set that function here expecet the entered parameters here*/
+    /** then here we can add our expense data another object, copy in the entered expense data which I expect to be that object which we generate here into submit handler, */,
+    /** The point is to create a unique ID even this is not the perfect way */,
+/** 3. We are adding the function here to pass it to expense form */
+
+/** 4. Add props here to get the onSaveExpenseData at ExpenseForm */
+/** 5. We are creating a function to handling the expenses and add a new expense to the expenses array at App.js */
+ /** 6. adding as prop the function as in steps 2 and 3  */
+ /** 7. Execute the function from parent component */
