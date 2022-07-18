@@ -10,14 +10,24 @@ const Expenses = (props) => {
     // console.log(selecetedValue);
     setFilteredYear(selecetedValue);
   };
-  // console.log(filteredYear);
+
+  const filteredByYearExpenses = props.items.filter((expense) => {
+    // // console.log(expense.date);
+    // // console.log("FILTER: " + filteredYear);
+    // console.log("FILTER: " + typeof filteredYear);
+    // // console.log("PROPS: " + expense.date.getFullYear());
+    // console.log("PROPS: " + typeof expense.date.getFullYear().toString());
+
+    return expense.date.getFullYear().toString() === filteredYear; // They should be equal as Type AND Value
+  });
+  // console.log(filteredByYearExpenses);
   return (
     <Card className="expenses">
       <ExpensesFilter
         seleceted={filteredYear}
         onChangeFilter={onChnageFilterHandler}
       />
-      {props.items.map((expense, index) => (
+      {filteredByYearExpenses.map((expense, index) => (
         <ExpenseItem
           key={expense.id}
           title={expense.title}
