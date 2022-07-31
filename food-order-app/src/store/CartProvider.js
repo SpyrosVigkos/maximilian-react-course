@@ -8,7 +8,7 @@ const deafaultCartState = {
 
 const cartReduser = (state, action) => {
   if (action.type === "ADD") {
-    const updatedItems = state.items.concact(action.item);
+    const updatedItems = state.items.concat(action.item);
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.amount;
     return {
@@ -39,7 +39,6 @@ const CartProvider = (props) => {
   };
   return (
     <CartContext.Provider value={cartContext}>
-      {" "}
       {props.children}
     </CartContext.Provider>
   );
