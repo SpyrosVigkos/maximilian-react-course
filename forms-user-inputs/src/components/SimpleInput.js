@@ -10,8 +10,9 @@ const SimpleInput = (props) => {
   const enteredNameIsValid = enteredName.trim() !== "";
   const nameInputIsInvalid = !enteredNameIsValid && enteredNameIsTouched;
 
-  const enteredMailIsValid =
-    /\S+@\S+\.\S+/.test(enteredMail) && enteredMail.trim() !== "";
+  const enteredMailIsValid = enteredMail.includes("@");
+  // Spyros solution:   /\S+@\S+\.\S+/.test(enteredMail) && enteredMail.trim() !== "";
+
   const mailInputIsInvalid = !enteredMailIsValid && enteredMailIsTouched;
 
   let formIsValid = false;
@@ -54,10 +55,14 @@ const SimpleInput = (props) => {
     setEnteredMail("");
   };
 
-  const nameInputClasses =
-    !nameInputIsInvalid || !nameInputIsInvalid
-      ? "form-control"
-      : "form-control invalid";
+  const nameInputClasses = nameInputIsInvalid
+    ? "form-control invalid"
+    : "form-control";
+
+  const emailInputClasses = enteredEmailIsInvalid
+    ? "form-control invalid"
+    : "form-control";
+
   return (
     <form onSubmit={formSubmissionHandler}>
       <div className={nameInputClasses}>
@@ -72,16 +77,18 @@ const SimpleInput = (props) => {
         {nameInputIsInvalid && (
           <p className="error-text">Name must not be empty.</p>
         )}
-        <label htmlFor="email">Your Email</label>
+      </div>
+      <div className={emailInputClasses}>
+        <label htmlFor="email">Your E-Mail</label>
         <input
           type="email"
           id="email"
-          onChange={mailInputChangeHandler}
-          onBlur={mailInputBlurHandler}
-          value={enteredMail}
+          onChange={emailInputChangeHandler}
+          onBlur={emailInputBlurHandler}
+          value={enteredEmail}
         />
-        {mailInputIsInvalid && (
-          <p className="error-text">Name must not be empty and without @.</p>
+        {enteredEmailIsInvalid && (
+          <p className="error-text">Please enter a valid email.</p>
         )}
       </div>
       <div className="form-actions">
