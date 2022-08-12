@@ -15,7 +15,7 @@ function App() {
         <Route path="/" exact>
           <HomePage />
         </Route>
-        {!authCtx && (
+        {!authCtx.isLoggedIn && (
           <Route path="/auth">
             <AuthPage />
           </Route>
