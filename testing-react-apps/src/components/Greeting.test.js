@@ -38,6 +38,7 @@ describe("Greeting Component", () => {
     const outputElement = screen.getByText("Changed");
     expect(outputElement).toBeInTheDocument();
   });
+
   test("does not render good to see you if the btn was clicked", () => {
     //Arrange
     render(<Greeting />);
